@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hitesh Thimmaraju | Threat Intelligence Analyst</title>
+<meta name="description" content="Threat intelligence analyst with hands-on OSINT, attacker-infrastructure investigation and threat actor TTP analysis.">
+<style>
+:root{
+  --bg:#eef1f4;--surface:#ffffff;--ink:#101820;--muted:#55606c;--line:#d3d9df;--accent:#1f4fd8;--accent-ink:#ffffff;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0e1319;--surface:#151c24;--ink:#e8edf2;--muted:#9aa6b2;--line:#27313c;--accent:#86a7ff;--accent-ink:#0e1319}
+}
+:root[data-theme="dark"]{--bg:#0e1319;--surface:#151c24;--ink:#e8edf2;--muted:#9aa6b2;--line:#27313c;--accent:#86a7ff;--accent-ink:#0e1319}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:780px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+nav .wrap{display:flex;gap:22px;align-items:center;height:52px;overflow-x:auto;white-space:nowrap}
+nav a{color:var(--muted);text-decoration:none;font-size:15px}
+nav a:hover{color:var(--ink)}
+nav .home{color:var(--ink);font-weight:700;margin-right:auto;font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif}
+header.hero{padding:72px 0 44px}
+h1{font:700 clamp(40px,8vw,68px)/1.04 Georgia,"Iowan Old Style","Palatino Linotype",serif;letter-spacing:-.02em;margin:0 0 18px}
+.lede{font-size:clamp(19px,2.6vw,23px);line-height:1.45;max-width:34em;margin:0 0 26px}
+.meta{color:var(--muted);margin:0 0 26px;font-size:16px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:11px 20px;border-radius:6px;border:1.5px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:600;font-size:16px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{opacity:.88}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin:40px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:22px 20px 22px 0}
+.stat+.stat{padding-left:20px;border-left:1px solid var(--line)}
+.stat b{display:block;font:700 clamp(30px,5.5vw,44px)/1 Georgia,"Iowan Old Style",serif;color:var(--accent);margin-bottom:8px;font-variant-numeric:tabular-nums}
+.stat span{display:block;color:var(--muted);font-size:14.5px;line-height:1.4}
+@media (max-width:620px){
+  .stats{grid-template-columns:1fr}
+  .stat,.stat+.stat{padding:18px 0;border-left:0}
+  .stat+.stat{border-top:1px solid var(--line)}
+}
+section{padding:54px 0 6px}
+h2{font:700 clamp(26px,4vw,32px)/1.15 Georgia,"Iowan Old Style",serif;margin:0 0 22px;letter-spacing:-.01em}
+h3{font-size:19px;margin:0 0 2px}
+p{margin:0 0 14px;max-width:38em}
+.when{color:var(--muted);font-size:15px;margin:0 0 12px}
+ul{margin:0;padding-left:20px}
+li{margin-bottom:9px;max-width:40em}
+.timeline{position:relative;margin:0;padding:0 0 0 30px;list-style:none}
+.timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.timeline>li{position:relative;margin:0 0 38px;max-width:none}
+.timeline>li::before{content:"";position:absolute;left:-30px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--bg)}
+.timeline ul{margin-top:6px}
+.flow{list-style:none;margin:0;padding:0;counter-reset:s;border-top:1px solid var(--line)}
+.flow li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:4px 12px;padding:16px 0;border-bottom:1px solid var(--line);margin:0;max-width:none}
+.flow li::before{content:counter(s);font:700 26px/1.2 Georgia,serif;color:var(--accent)}
+.flow b{display:block}
+.flow span{color:var(--muted)}
+.paper{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:26px 26px 14px}
+dl{margin:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:190px 1fr;gap:6px 24px;padding:15px 0;border-bottom:1px solid var(--line)}
+dt{font-weight:700}
+dd{margin:0}
+@media (max-width:620px){.row{grid-template-columns:1fr}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+@media (max-width:620px){.two{grid-template-columns:1fr}}
+.contact p{font-size:20px;line-height:1.9}
+footer{padding:50px 0 60px;color:var(--muted);font-size:14.5px}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,footer{position:relative;z-index:1}
+
+/* Motion: one page-load sequence, then reveals tied to scrolling. Off for reduced-motion users. */
+@media (prefers-reduced-motion:no-preference){
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  .hero h1,.hero .lede,.hero .meta,.hero .btns,.hero .stats{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .hero h1{animation-delay:.05s}.hero .lede{animation-delay:.2s}.hero .meta{animation-delay:.3s}
+  .hero .btns{animation-delay:.4s}.hero .stats{animation-delay:.55s}
+  .js .timeline::before{transform:scaleY(0);transform-origin:top;transition:transform 1.4s ease}
+  .js .timeline.in::before{transform:scaleY(1)}
+  .js .timeline>li,.js .flow li{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .js .timeline.in>li,.js .flow.in li{opacity:1;transform:none}
+  .js .timeline.in>li:nth-child(2){transition-delay:.35s}
+  .js .flow.in li:nth-child(2){transition-delay:.12s}.js .flow.in li:nth-child(3){transition-delay:.24s}
+  .js .flow.in li:nth-child(4){transition-delay:.36s}.js .flow.in li:nth-child(5){transition-delay:.48s}
+}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<nav aria-label="Sections"><div class="wrap">
+  <a class="home" href="#top">Hitesh Thimmaraju</a>
+  <a href="#workflow">Workflow</a><a href="#experience">Experience</a><a href="#research">Research</a><a href="#skills">Skills</a><a href="#credentials">Credentials</a><a href="#contact">Contact</a>
+</div></nav>
+
+<main id="top">
+<header class="hero"><div class="wrap">
+  <h1>Hitesh Thimmaraju</h1>
+  <p class="lede">Threat intelligence analyst with hands-on OSINT, attacker-infrastructure investigation and threat actor TTP analysis.</p>
+  <p class="meta">Based in Magdeburg, Germany. Open to relocation to the Netherlands and across Europe.</p>
+  <div class="btns">
+    <a class="btn primary" href="mailto:Hiteshthimmaraju1529@gmail.com">Email me</a>
+    <a class="btn" href="https://linkedin.com/in/hiteshthimmaraju">LinkedIn</a>
+    <a class="btn" href="https://github.com/hiteshthimmaraju1529">GitHub</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b data-to="30" data-dec="0" data-suf="%">30%</b><span>faster incident response after I built and tuned detection rules at ZeroFox</span></div>
+    <div class="stat"><b data-to="0.9994" data-dec="4" data-suf="">0.9994</b><span>F1-score on the NSL-KDD benchmark for my intrusion-detection framework</span></div>
+    <div class="stat"><b data-to="63.8" data-dec="1" data-suf="%">63.8%</b><span>recall on novel attacks, with a false-positive rate under 1%</span></div>
+  </div>
+</div></header>
+
+<section id="about"><div class="wrap">
+  <h2>About</h2>
+  <p>At ZeroFox I mapped threat actor activity to MITRE ATT&amp;CK, found attacker infrastructure with OSINT, and wrote up findings for enterprise clients. I then fed what I learned into detection rules.</p>
+  <p>I am now finishing an M.Sc. in Computer Science with a Cybersecurity specialization (December 2026) while doing applied research on AI-driven intrusion detection. I am looking for threat intelligence and security analyst roles.</p>
+</div></section>
+
+<section id="workflow"><div class="wrap">
+  <h2>How I work an investigation</h2>
+  <ol class="flow">
+    <li><div><b>Pivot on indicators</b><span>Start from an IOC and correlate related events to see what else is connected.</span></div></li>
+    <li><div><b>Find the infrastructure</b><span>Use OSINT tools such as Maltego, Shodan and SpiderFoot to identify attacker infrastructure.</span></div></li>
+    <li><div><b>Map the behavior</b><span>Tie the activity to threat actor TTPs in MITRE ATT&amp;CK and reconstruct the attack timeline.</span></div></li>
+    <li><div><b>Write it up</b><span>Document findings clearly for the client, and support takedowns where the evidence allows.</span></div></li>
+    <li><div><b>Turn it into detection</b><span>Convert what I learned into detection rules so the next attempt is caught earlier.</span></div></li>
+  </ol>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2>Experience</h2>
+  <ul class="timeline">
+    <li>
+      <h3>Applied Security Researcher and Detection Engineer</h3>
+      <p class="when">IU International University of Applied Sciences, Magdeburg. Aug 2023 to present</p>
+      <ul>
+        <li>Designed a three-layer AI intrusion-detection framework using Random Forest, DBSCAN and Neo4j for network telemetry and threat correlation.</li>
+        <li>Presented the research at the IC-NEXT 2026 International Conference.</li>
+        <li>Built Elastic Stack pipelines for Suricata and Zeek telemetry, with KQL and Lucene queries and Kibana dashboards.</li>
+        <li>Created and validated Sigma detections against lab telemetry, informed by current breach reports.</li>
+      </ul>
+    </li>
+    <li>
+      <h3>Security Analyst (Platform Data Specialist)</h3>
+      <p class="when">ZeroFox, Bengaluru. Jul 2022 to Aug 2023</p>
+      <ul>
+        <li>Mapped threat actor activity and TTPs to MITRE ATT&amp;CK and fed the intelligence into detection logic.</li>
+        <li>Ran OSINT investigations with Maltego, Shodan and SpiderFoot to identify attacker infrastructure and support domain and social-media takedowns.</li>
+        <li>Investigated incidents by pivoting on IOCs, correlating events and reconstructing attack timelines, then documented findings for enterprise clients.</li>
+        <li>Cut incident-response time by 30% by developing and tuning FoxScript detection rules for phishing infrastructure, brand abuse and executive impersonation.</li>
+        <li>Triaged high-volume alerts and managed Tier 2 escalations within client SLAs.</li>
+        <li>Contributed to SOC playbooks and runbooks.</li>
+      </ul>
+    </li>
+  </ul>
+</div></section>
+
+<section id="research"><div class="wrap">
+  <h2>Research</h2>
+  <div class="paper">
+    <h3>A Three-Layer AI-Driven Intrusion Detection Framework</h3>
+    <p class="when">Presented at IC-NEXT 2026</p>
+    <p>The framework combines Random Forest, DBSCAN and graph-based threat correlation with Neo4j. On the NSL-KDD benchmark it reached a 0.9994 F1-score, and its novelty branches caught 63.8% of previously unseen attacks while keeping the false-positive rate below 1%.</p>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <dl>
+    <div class="row"><dt>Threat intelligence</dt><dd>Threat actor and TTP analysis, MITRE ATT&amp;CK, IOC analysis, OSINT, MISP, TheHive, Maltego, Shodan, SpiderFoot</dd></div>
+    <div class="row"><dt>Investigation</dt><dd>Attacker infrastructure identification, phishing and brand-abuse analysis, event correlation, attack timeline reconstruction</dd></div>
+    <div class="row"><dt>Detection</dt><dd>Sigma, Microsoft Sentinel, KQL, Splunk, Elastic Stack, Kibana, Lucene</dd></div>
+    <div class="row"><dt>Network analysis</dt><dd>Suricata, Zeek, Wireshark, TCP/IP, network traffic analysis</dd></div>
+    <div class="row"><dt>Scripting and tools</dt><dd>Python, SQL, Bash, PowerShell, Git, Linux, Windows, Kali Linux, Docker</dd></div>
+  </dl>
+</div></section>
+
+<section id="credentials"><div class="wrap">
+  <h2>Education and credentials</h2>
+  <div class="two">
+    <div>
+      <h3>Education</h3>
+      <ul>
+        <li>M.Sc. Computer Science, Cybersecurity specialization. IU International University of Applied Sciences. Expected Dec 2026</li>
+        <li>B.E. Computer Science and Engineering. C. Byregowda Institute of Technology, VTU. 2017 to 2021</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Certifications</h3>
+      <ul>
+        <li>Google Cybersecurity Certificate</li>
+        <li>TryHackMe SOC Level 1</li>
+        <li>CompTIA Security+ (in progress)</li>
+        <li>Microsoft SC-200 Security Operations Analyst (in progress)</li>
+      </ul>
+      <h3 style="margin-top:20px">Languages</h3>
+      <ul><li>English C1, German B2 (in progress), Dutch A1 (learning), Kannada (native)</li></ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <h2>Contact</h2>
+  <p><a href="mailto:Hiteshthimmaraju1529@gmail.com">Hiteshthimmaraju1529@gmail.com</a><br><a href="https://linkedin.com/in/hiteshthimmaraju">LinkedIn</a><br><a href="https://github.com/hiteshthimmaraju1529">GitHub</a></p>
+</div></section>
+</main>
+<footer><div class="wrap">Hitesh Thimmaraju, Magdeburg, Germany</div></footer>
+
+<script>
+(function(){
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce||!("IntersectionObserver" in window))return;
+  document.documentElement.classList.add("js");
+  // count-up on the three headline numbers, once, after the hero has risen
+  document.querySelectorAll(".stat b").forEach(function(el){
+    var to=parseFloat(el.dataset.to),dec=+el.dataset.dec,suf=el.dataset.suf||"";
+    var t0=null,dur=1400;el.textContent=(0).toFixed(dec)+suf;
+    function tick(t){
+      if(t0===null)t0=t;var p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);
+      el.textContent=(to*e).toFixed(dec)+suf;
+      if(p<1)requestAnimationFrame(tick);else el.textContent=to.toFixed(dec)+suf;
+    }
+    setTimeout(function(){requestAnimationFrame(tick)},700);
+  });
+  // timeline and workflow reveal as they scroll into view
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}});
+  },{threshold:.2});
+  document.querySelectorAll(".timeline,.flow").forEach(function(n){io.observe(n)});
+})();
+</script>
+<script>
+(function(){
+  var c=document.getElementById('bg');if(!c||!c.getContext)return;
+  var x=c.getContext('2d'),W,H,N=[],mx=-9999,my=-9999,col='31,79,216',D=150,run=false;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function color(){var a=getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();var m=/^#([0-9a-f]{6})$/i.exec(a);if(m){var n=parseInt(m[1],16);col=(n>>16&255)+','+(n>>8&255)+','+(n&255)}}
+  function size(){
+    var d=Math.min(window.devicePixelRatio||1,2);W=innerWidth;H=innerHeight;
+    c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0);
+    var n=Math.max(22,Math.min(Math.round(W*H/16000),70));
+    while(N.length<n)N.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:1.5+Math.random()*2});
+    N.length=n;color();draw();
+  }
+  function draw(){
+    x.clearRect(0,0,W,H);var i,j,a,b,dx,dy,d;
+    for(i=0;i<N.length;i++){
+      a=N[i];
+      if(run){a.x+=a.vx;a.y+=a.vy;if(a.x<-10)a.x=W+10;if(a.x>W+10)a.x=-10;if(a.y<-10)a.y=H+10;if(a.y>H+10)a.y=-10}
+      for(j=i+1;j<N.length;j++){
+        b=N[j];dx=a.x-b.x;dy=a.y-b.y;d=Math.sqrt(dx*dx+dy*dy);
+        if(d<D){x.strokeStyle='rgba('+col+','+((1-d/D)*.22).toFixed(3)+')';x.lineWidth=1;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}
+      }
+      dx=a.x-mx;dy=a.y-my;d=Math.sqrt(dx*dx+dy*dy);
+      if(d<180){x.strokeStyle='rgba('+col+','+((1-d/180)*.35).toFixed(3)+')';x.lineWidth=1;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(mx,my);x.stroke()}
+      x.fillStyle='rgba('+col+',.35)';x.beginPath();x.arc(a.x,a.y,a.r,0,6.2832);x.fill();
+    }
+  }
+  function loop(){if(!run)return;draw();requestAnimationFrame(loop)}
+  addEventListener('resize',size);
+  addEventListener('pointermove',function(e){mx=e.clientX;my=e.clientY});
+  document.addEventListener('pointerleave',function(){mx=my=-9999});
+  if(window.matchMedia){var q=matchMedia('(prefers-color-scheme: dark)');if(q.addEventListener)q.addEventListener('change',function(){color();draw()})}
+  size();
+  if(!reduce){
+    run=true;requestAnimationFrame(loop);
+    document.addEventListener('visibilitychange',function(){if(document.hidden){run=false}else if(!run){run=true;requestAnimationFrame(loop)}});
+  }
+})();
+</script>
+</body>
+</html>
